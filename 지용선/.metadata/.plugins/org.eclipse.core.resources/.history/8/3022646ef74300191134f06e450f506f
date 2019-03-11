@@ -1,0 +1,16 @@
+
+public class Billing {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		String[] itemName    = {"100시간", "200시간", "300시간"};
+		int   [] itemPrice   = {1000,     2000,     3000};
+		String[] userName    = null;
+		int[]    userBalance = null;
+		// TODO Auto-generated method stub
+		
+	}
+
+}
