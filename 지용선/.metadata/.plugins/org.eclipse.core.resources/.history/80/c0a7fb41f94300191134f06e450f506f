@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+
+public class Billing {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		String[] itemName    = {"100시간", "200시간", "300시간"};
+		int   [] itemPrice   = {1000,     2000,     3000};  
+		String[] userName    = null;
+		int   [] userBalance = null;
+		int   userInput      = 0;
+		Scanner scan = new Scanner(System.in);
+		
+		userInput = PrintMenu(scan);
+		while(userInput != 5){
+			
+		}
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public static int PrintMenu(Scanner scan)
+	{
+		System.out.println("1: 유저등록");
+		System.out.println("2: 캐시충전");
+		System.out.println("3: 구매");
+		System.out.println("4: 전체유저보기");
+		System.out.println("5: 종료");
+		return scan.nextInt(); 
+	}
+
+}
