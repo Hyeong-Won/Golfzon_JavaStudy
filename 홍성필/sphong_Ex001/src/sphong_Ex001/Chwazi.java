@@ -23,7 +23,9 @@ public class Chwazi {
 		}
 		int LoserNo = random.nextInt(names.length);
 		System.out.println("당첨자 ! : " + names[LoserNo]);
-
+		
+		scn.close();
+		name.close();
 	}
 
 }
