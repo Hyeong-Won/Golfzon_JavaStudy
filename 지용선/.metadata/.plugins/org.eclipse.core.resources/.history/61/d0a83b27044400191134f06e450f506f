@@ -85,15 +85,14 @@ public class Billing {
 		if(userIndex != -9999){
 			if(type == 1){
 				System.out.println("충전할 금액을 입력하세요 : ");
-				cashAmt = ChkAmount(scan, userIndex, type);
+				cashAmt = scan.nextInt();
 				userBalances[userIndex] += cashAmt;
 			}
 			else if(type == 2){
-				System.out.println("회수할 금액을 입력하세요 : ");
-				cashAmt = ChkAmount(scan, userIndex, type);
+				System.out.println("할 금액을 입력하세요 : ");
+				cashAmt = scan.nextInt();
 				userBalances[userIndex] -= cashAmt;
 			}
-			System.out.println("정상처리 되었습니다.");
 		}
 	}
 	
@@ -123,15 +122,6 @@ public class Billing {
 		}
 	}
 	
-	public static int ChkAmount(Scanner scan,int index, int type){
-		int amt = scan.nextInt();
-		
-		if(amt < 0 || (type == 2 && userBalances[index] - amt < 0)){
-			amt = 0;
-			System.out.println("금액이 잘못되었습니다.");
-		}
-		return amt;
-	}
 
 	public static void PrintAllUser(){
 		DecimalFormat df = new DecimalFormat("#,###");

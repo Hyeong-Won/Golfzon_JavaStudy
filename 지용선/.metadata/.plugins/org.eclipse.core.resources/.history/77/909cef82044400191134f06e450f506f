@@ -93,7 +93,6 @@ public class Billing {
 				cashAmt = ChkAmount(scan, userIndex, type);
 				userBalances[userIndex] -= cashAmt;
 			}
-			System.out.println("정상처리 되었습니다.");
 		}
 	}
 	
