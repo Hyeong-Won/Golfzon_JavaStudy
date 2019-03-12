@@ -1,0 +1,17 @@
+package chapter01;
+
+import java.util.Scanner;
+
+public class chapter01 {
+	public static void main(String[] args) {
+		String strSearchWork;
+		
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("검색할 문자를 입력하세요");
+		
+		strSearchWork = scan.nextLine();
+		
+		System.out.println("Inpout Word : " + strSearchWork);
+	}
+}

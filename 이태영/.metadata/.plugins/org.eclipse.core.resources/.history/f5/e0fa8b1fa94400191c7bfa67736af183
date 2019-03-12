@@ -1,0 +1,25 @@
+package chapter01;
+
+import java.util.Scanner;
+
+public class chapter01 {
+	public static void main(String[] args) {
+		int intTotalCnt = 0;
+		int intPosition  = 0;
+		
+		String strTargetText;		
+		
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("문자열을 입력하세요");
+		
+		strTargetText = scan.nextLine();
+		intTotalCnt     = strTargetText.length();
+		
+		System.out.printf("입력된 문자열 : %s, 문자갯수(%d) " , strTargetText, intTotalCnt);
+		
+		
+		
+		scan.close();
+	}
+}
