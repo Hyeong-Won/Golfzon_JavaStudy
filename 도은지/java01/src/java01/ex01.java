@@ -18,8 +18,8 @@ public class ex01 {
 	     int[] arr2 = Arrays.copyOf(arr, 5);
 	      
 	     //버블정렬
-	      for(int i=0; i<arr2.length-1; i++) {
-	         for(int j=0; j<arr2.length-1; j++) {
+	      for(int i=arr2.length; i>0; i--) {
+	         for(int j=0; j<i-1; j++) {
 	            if(arr2[j] > arr2[j+1]) {
 	               int tmp = arr2[j];
 	               arr2[j] = arr2[j+1];
