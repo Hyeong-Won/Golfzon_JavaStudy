@@ -11,26 +11,26 @@ public class ex02 {
 		double weight = 0;
 		double bmi = 0;
 		
-		System.out.println("Å° ÀÔ·Â : ");
+		System.out.println("í‚¤ ì…ë ¥ : ");
 		height = scn.nextDouble();
 		
-		System.out.println("¸ö¹«°Ô ÀÔ·Â : ");
+		System.out.println("ëª¸ë¬´ê²Œ ì…ë ¥ : ");
 		weight = scn.nextDouble();
 		
 		scn.close();
 		
 		bmi = weight / (Math.pow((height*0.01), 2));
 		
-		System.out.printf("´ç½ÅÀÇ bmi : %.2f \n", bmi); //¼Ò¼öÁ¡ 2ÀÚ¸®
+		System.out.printf("ë‹¹ì‹ ì˜ bmi : %.2f \n", bmi); //ì†Œìˆ˜ì  2ìë¦¬
 		
 		if(bmi <= 18.5) {
-			System.out.println("ÀúÃ¼ÁßÀÔ´Ï´Ù");
+			System.out.println("ì €ì²´ì¤‘");
 		}else if(bmi < 25) {
-			System.out.println("Á¤»óÀÔ´Ï´Ù");
+			System.out.println("í‘œì¤€");
 		}else if(bmi < 30) {
-			System.out.println("°úÃ¼ÁßÀÔ´Ï´Ù");
+			System.out.println("ê³¼ì²´ì¤‘");
 		}else {
-			System.out.println("ºñ¸¸ÀÔ´Ï´Ù");
+			System.out.println("ë¹„ë§Œ");
 		}
 		
 	}
