@@ -1,6 +1,7 @@
 package chapter01;
 
 import java.util.Scanner;
+// 사용하지 않는 임포트문 제거 단축키 ctrl+shift+o
 
 public class chapter01 {
 	public static void main(String[] args) {
@@ -45,6 +46,7 @@ public class chapter01 {
 		
 		//폴더에서 파일목록을 가져왔다 치고!
 		//그런데 String 배열 선언시 String[] arrFileList 와 String arrFileList[] 는 어떤 차이점이 있는지?
+		
 		int intMatchedCnt = 0;
 		
 		String[] arrFileList = {"filelist1.txt","filelist2.csv","filelist3.txt","filelist4.csv","filelist5.txt"};
@@ -63,6 +65,6 @@ public class chapter01 {
 		}
 		
 		System.out.printf("발견된 csv 파일 총 개수(%d)", intMatchedCnt);
-
+	    
 	}
 }
