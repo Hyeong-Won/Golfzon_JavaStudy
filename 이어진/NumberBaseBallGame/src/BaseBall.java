@@ -2,7 +2,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 class BaseBall 
-{
+{ 
 	static int[] 	baseBallNum 	= {0, 0, 0};	// 맞춰야하는 배열	
 	static int[] 	userNum	 		= {0, 0, 0};	// 유저 입력 배열
 	static int 		strikeCnt		= 0; 			// 스트라이크 카운트 수
