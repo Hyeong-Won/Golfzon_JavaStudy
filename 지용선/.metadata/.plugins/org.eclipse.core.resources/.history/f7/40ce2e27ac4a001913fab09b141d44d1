@@ -1,0 +1,13 @@
+package common;
+
+import java.util.ArrayList;
+
+public class HoldItemManager {
+	private ArrayList<HoldItem> holdItem;
+	
+	public HoldItemManager() {
+		this.holdItem = new ArrayList<HoldItem>();
+	}
+	
+	
+}

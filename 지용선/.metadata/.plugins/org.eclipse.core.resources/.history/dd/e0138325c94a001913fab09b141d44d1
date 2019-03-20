@@ -1,0 +1,9 @@
+package billing;
+
+import common.HoldItem;
+import common.User;
+import common.CommonConst.UseState;
+
+public class PurchaseManager {
+	
+}

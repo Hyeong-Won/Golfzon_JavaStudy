@@ -1,0 +1,37 @@
+package game;
+
+import java.util.ArrayList;
+
+import billing.BillingManager;
+import billing.Cash;
+import common.CommonConst;
+import common.CommonConst.UseState;
+import common.User;
+
+public class GameManager {
+	private ArrayList<BaseBall> game;
+	
+	public GameManager() {
+		this.game = new ArrayList<BaseBall>();
+	}
+
+	public void addGame(BaseBall game, User user) {
+
+		if(BillingManager.getItemCnt(user, CommonConst.ITEMCODE2222) < 0) {
+			System.out.println("입장권을 구매하세요.");
+		}
+		
+		BillingManager.useItem(user, CommonConst.ITEMCODE2222);
+		
+		this.game.add(game);
+		System.out.println("게임번호 \'" +game.getGameNo() +"\' 가 기록되었습니다.");
+		
+		
+	}
+	
+	public void printAllCash() {
+		for (BaseBall game : this.game) {
+			System.out.println(game);
+		}
+	}
+}

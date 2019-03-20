@@ -1,0 +1,66 @@
+package main;
+
+import java.util.Scanner;
+
+import billing.BillingManager;
+import common.CommonConst;
+import common.UserManager;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scan      = new Scanner(System.in);
+		int     userInput = 0;
+		String  userName  = null;
+		UserManager user = new UserManager();
+		
+		do {
+			userInput = PrintMenu(scan);
+			
+			switch(userInput){
+			case CommonConst.USERREGIST:
+				userName = getUserName(scan);
+				break;
+			case CommonConst.BILLING:
+				userName = getUserName(scan);
+				BillingManager billing = new BillingManager();
+				break;
+			case CommonConst.GAME:
+				CashManage(scan, 2);
+				break;
+			case CommonConst.SHOWALLUSER:
+				PrintAllUser();
+				break;
+			case CommonConst.TERMINATECODE:
+				PrintAllUser();
+				System.out.println("종료되었습니다.");
+				break;
+			default:
+				System.out.println("1 ~ 5 의 값을 입력해주세요.");
+				break;
+			}
+		} while(userInput != TERMINATECODE);
+		// TODO Auto-generated method stub
+		
+		
+		BillingManager billing = new BillingManager(user);
+	}
+	
+	public static int PrintMenu(Scanner scan)
+	{
+		System.out.println("1: 유저등록");
+		System.out.println("2: 캐시충전/아이템 구매");
+		System.out.println("3: 게임시작");
+		System.out.println("4: 전체유저보기");
+		System.out.println("5: 종료");
+		return scan.nextInt(); 
+	}
+	
+	public static String getUserName(Scanner scan)
+	{
+		System.out.print("유저 이름을 입력해주세요 : ");
+		return scan.next(); 
+	}
+
+}

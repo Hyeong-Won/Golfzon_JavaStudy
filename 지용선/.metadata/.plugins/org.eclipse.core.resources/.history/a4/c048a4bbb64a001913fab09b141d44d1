@@ -1,0 +1,21 @@
+package billing;
+
+import common.HoldItem;
+import common.User;
+import common.CommonConst.UseState;
+
+public class PurchaseManager {
+	public static int purchaseItem(User user, int itemCode, String itemName, int itemAmt) {
+		if(user.getCash().getRemainCash() > itemAmt) {
+			HoldItem item = new HoldItem();
+			item.setItemCode(itemCode);
+			item.setItemName(itemName);
+			item.setUseState(UseState.Á¤»ó);
+			
+			user.getHoldItem().addHoldItem(item);
+		}
+		
+		return itemAmt;
+		
+	}
+}

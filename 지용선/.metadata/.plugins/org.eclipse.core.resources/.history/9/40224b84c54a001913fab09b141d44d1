@@ -1,0 +1,15 @@
+package common;
+
+import billing.CashManager;
+
+public class User {
+	private CashManager     cash;
+	private HoldItemManager holdItem;
+	
+	public CashManager getCash() {
+		return cash;
+	}
+	public HoldItemManager getHoldItem() {
+		return holdItem;
+	}
+}

@@ -1,0 +1,36 @@
+package common;
+
+import java.util.ArrayList;
+
+
+public class UserManager {
+	private ArrayList<User> user;
+	private static int      totalCnt;
+	
+	public UserManager() {
+		this.user = new ArrayList<User>();
+	}
+
+	public int getTotalCnt() {
+		return totalCnt;
+	}
+	
+	public void addCash(User user) {
+		this.user.add(user);
+		System.out.println("\'" +user.getUserName() +"\' 계정이 정상 생성되었습니다.");
+	}
+	
+	public int getRemainCash() {
+		int result = 0;
+		for (Cash cash : this.cash) {
+			result += cash.getRemainAmt();
+		}
+		return result;
+	}
+	
+	public void printAllCash() {
+		for (Cash cash : this.cash) {
+			System.out.println(cash);
+		}
+	}
+}

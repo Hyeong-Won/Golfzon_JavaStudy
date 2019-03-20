@@ -1,0 +1,55 @@
+package game;
+
+import java.util.ArrayList;
+
+import billing.Cash;
+import common.CommonConst.UseState;
+
+public class GameManager {
+	private ArrayList<BaseBall> game;
+	
+	public GameManager() {
+		this.game = new ArrayList<BaseBall>();
+	}
+
+	public void addGame(BaseBall game) {
+		this.game.add(game);
+		System.out.println("게임번호 \'" +game.getGameNo() +"\' 가 기록되었습니다.");
+	}
+	
+	public int getRemainCash() {
+		int result = 0;
+		for (Cash cash : this.cash) {
+			if(cash.getUseState().equals(UseState.정상)) {
+				result += cash.getRemainAmt();
+			}
+		}
+		return result;
+	}
+	
+	public void useCash(int cashAmt) {
+		int remainCash = cashAmt;
+		
+		for (Cash cash : this.cash) {
+			if(cash.getUseState().equals(UseState.정상) && cash.getRemainAmt() > 0) {
+				
+				if(cash.getRemainAmt() >= remainCash) {
+					System.out.println("캐시번호 \'" +cash.getCashNo() +"\' 가 "+ remainCash +" 원 사용되었습니다.");
+					cash.setRemainAmt(cash.getRemainAmt() - remainCash);
+					break;
+				}
+				else {
+					System.out.println("캐시번호 \'" +cash.getCashNo() +"\' 가 "+cash.getRemainAmt()+" 원 사용되었습니다.");
+					remainCash -= cash.getRemainAmt();
+					cash.setRemainAmt(0);
+				}
+			}
+		}
+	}
+	
+	public void printAllCash() {
+		for (Cash cash : this.cash) {
+			System.out.println(cash);
+		}
+	}
+}
