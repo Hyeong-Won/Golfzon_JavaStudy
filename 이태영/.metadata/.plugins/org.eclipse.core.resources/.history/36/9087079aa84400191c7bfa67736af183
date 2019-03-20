@@ -1,0 +1,24 @@
+package chapter01;
+
+import java.util.Scanner;
+
+public class chapter01 {
+	public static void main(String[] args) {
+		String strTargetText;		
+
+		
+		strTargetText = "abcdefgabcdefgabcdefgabcdefgabcdefg";
+		
+		intTotalCnt = strTargetText.length();
+		
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("문자열을 입력하세요");
+		
+		strTargetText = scan.nextLine();
+		
+		System.out.println("입력된 문자열 : " + strTargetText);
+		
+		scan.close();
+	}
+}

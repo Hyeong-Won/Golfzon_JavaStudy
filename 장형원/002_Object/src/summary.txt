@@ -1,0 +1,27 @@
+@package
+- 성질이 같은 클래스들은 하나의 디렉토리에 모아두기 위함
+
+@기본생성자
+- 따로 명시하지 않으면 컴파일 시점에 자동 생성
+
+@사용자 정의 생성자
+- 생성자를 명시
+  -> 기본 생성자는 자동 생성하지 않음
+
+@소멸자
+- System.gc(); 
+  -> 가급적 빨리 GC가 동작하도록 요청
+- GC가 동작하면 객체 안의 finalize()를 호출하여 객체 소멸
+- finalize()는 보통 명시하지 않음
+
+@import
+- import com.java.employee.Employee; 명시하면 다른 package의 class를 사용가능
+
+@접근제한자
+- public
+- default : 같은 패키지 내
+- protected : 같은 패키지 내 상속
+- private
+
+@getter, setter
+- setter 안에 조건식 가능

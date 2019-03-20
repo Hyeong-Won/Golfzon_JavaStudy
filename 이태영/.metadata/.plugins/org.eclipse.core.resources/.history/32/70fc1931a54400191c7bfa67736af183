@@ -1,0 +1,23 @@
+package chapter01;
+
+import java.util.Scanner;
+
+public class chapter01 {
+	public static void main(String[] args) {
+		String strSearchWord;
+		String strTargetText;
+		
+		strTargetText = "abcdefgabcdefgabcdefgabcdefgabcdefg";
+		
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("검색할 문자를 입력하세요");
+		
+		strSearchWord = scan.nextLine();
+		
+		System.out.println("입력된 검색문자 : " + strSearchWord);
+		System.out.println("총문자열수 : " +  strTargetText.length());
+		
+		scan.close();
+	}
+}
