@@ -1,4 +1,5 @@
-package pjtTest;
+package javaBasic;
+
 
 public class MainClass {
     // 프로그램을 가장 먼저 실행하는 메소드
@@ -118,12 +119,6 @@ public class MainClass {
 
         int[] arr2 = {10, 20, 30};
         System.out.printf("arr[0] = %d, arr[1] = %d, arr[2] = %d\n", arr2[0], arr2[1], arr2[2]);
-
-
-        
-        
-        
-        
 
         System.out.println("--------------------------------------------------");
     }

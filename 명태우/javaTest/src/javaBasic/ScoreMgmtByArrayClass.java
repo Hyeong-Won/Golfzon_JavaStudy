@@ -1,4 +1,4 @@
-package pjtTest;
+package javaBasic;
 
 import java.util.Arrays;
 import java.util.Scanner;
