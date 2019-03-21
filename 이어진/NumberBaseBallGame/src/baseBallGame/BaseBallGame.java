@@ -4,11 +4,11 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class BaseBallGame {
-	int[] 	baseBallNum = {0, 0, 0};	// 맞춰야하는 배열	
-	int[] 	userNum	 	= {0, 0, 0};	// 유저 입력 배열
-	int 	strikeCnt	= 0; 			// 스트라이크 카운트 수
-	int 	ballCnt		= 0; 			// 볼 카운트 수
-	int 	tryCnt		= 0; 			// 도전 횟수
+	private int[] 	baseBallNum = {0, 0, 0};	// 맞춰야하는 배열	
+	private int[] 	userNum	 	= {0, 0, 0};	// 유저 입력 배열
+	private int 	strikeCnt	= 0; 			// 스트라이크 카운트 수
+	private int 	ballCnt		= 0; 			// 볼 카운트 수
+	private int 	tryCnt		= 0; 			// 도전 횟수
 	
 	// 생성자에 컴퓨터 숫자 세팅 추가
 	public BaseBallGame ()
