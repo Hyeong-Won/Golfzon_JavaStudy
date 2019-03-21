@@ -50,7 +50,7 @@ public class BaseBallGame {
 	}
 
 	// 숫자 중복 체크 함수
-	public static boolean chkDuplication (int num, int idx, int[] chkOjb)
+	private static boolean chkDuplication (int num, int idx, int[] chkOjb)
 	{
 		for(int i=0; i<idx; i++)
 			if (chkOjb[i] == num)
@@ -59,22 +59,16 @@ public class BaseBallGame {
 	}
 
 	// 사용자 입력 UI 출력 함수
-	public void printUI (int num, Scanner s)
+	private void printUI (int num, Scanner s)
 	{
 		System.out.print(num + 1 + "번째 수 : ");
 		userNum[num] = s.nextInt();
 	}
 
-	// 시도 횟수 + 1 함수
-	public void addTryCnt ()
+	// 시도 횟수 + 1 한 뒤 return 해주는 함수
+	public int addTryCnt ()
 	{
-		tryCnt++;
-	}
-
-	// 시도 횟수 Get 함수
-	public int getTryCnt ()
-	{
-		return tryCnt;
+		return ++tryCnt;
 	}
 	
 	// 유저 번호 입력 함수

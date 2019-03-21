@@ -14,8 +14,7 @@ class Main
 		while (baseBall.chkStrikeCnt()) 
 		{
 			System.out.println("=====================================================");
-			baseBall.addTryCnt();
-			System.out.println(baseBall.getTryCnt() + "번째 도전! 숫자를 입력해주세요. :D");
+			System.out.println(baseBall.addTryCnt() + "번째 도전! 숫자를 입력해주세요. :D");
 
 			// 유저 숫자 입력
 			baseBall.inputUserNum(s);
