@@ -4,11 +4,11 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class BaseBallGame {
-	int[] 	baseBallNum = {0, 0, 0};	// 맞춰야하는 배열	
-	int[] 	userNum	 	= {0, 0, 0};	// 유저 입력 배열
-	int 	strikeCnt	= 0; 			// 스트라이크 카운트 수
-	int 	ballCnt		= 0; 			// 볼 카운트 수
-	int 	tryCnt		= 0; 			// 도전 횟수
+	private int[] 	baseBallNum = {0, 0, 0};	// 맞춰야하는 배열	
+	private int[] 	userNum	 	= {0, 0, 0};	// 유저 입력 배열
+	private int 	strikeCnt	= 0; 			// 스트라이크 카운트 수
+	private int 	ballCnt		= 0; 			// 볼 카운트 수
+	private int 	tryCnt		= 0; 			// 도전 횟수
 	
 	// 생성자에 컴퓨터 숫자 세팅 추가
 	public BaseBallGame ()
@@ -50,7 +50,7 @@ public class BaseBallGame {
 	}
 
 	// 숫자 중복 체크 함수
-	public static boolean chkDuplication (int num, int idx, int[] chkOjb)
+	private static boolean chkDuplication (int num, int idx, int[] chkOjb)
 	{
 		for(int i=0; i<idx; i++)
 			if (chkOjb[i] == num)
@@ -59,22 +59,16 @@ public class BaseBallGame {
 	}
 
 	// 사용자 입력 UI 출력 함수
-	public void printUI (int num, Scanner s)
+	private void printUI (int num, Scanner s)
 	{
 		System.out.print(num + 1 + "번째 수 : ");
 		userNum[num] = s.nextInt();
 	}
 
-	// 시도 횟수 + 1 함수
-	public void addTryCnt ()
+	// 시도 횟수 + 1 한 뒤 return 해주는 함수
+	public int addTryCnt ()
 	{
-		tryCnt++;
-	}
-
-	// 시도 횟수 Get 함수
-	public int getTryCnt ()
-	{
-		return tryCnt;
+		return ++tryCnt;
 	}
 	
 	// 유저 번호 입력 함수
