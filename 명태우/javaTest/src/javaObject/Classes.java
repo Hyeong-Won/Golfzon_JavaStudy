@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Classes {
-
     List<Classes> arrClassesList = null;
     
     String strName;
     String strRole;
     String strDesc;
 
+    
     int intHealth;
     int intPower;
     int intSpeed;
