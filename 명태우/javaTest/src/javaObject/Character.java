@@ -1,42 +1,53 @@
 package javaObject;
 
 public class Character {
-    String strName;
-    String strRole;
+    String strName         = null;
+    String strRole         = null;
     
-    int intStrength;
-    int intDexterity;
-    int intIntelligence;
+    int    intRole         = 0;
+    int    intStrength     = 0;
+    int    intDexterity    = 0;
+    int    intIntelligence = 0;
     
-    int intHealthPoint;
-    int intManaPoint;
-    int intPower;
-    int intDefensive;
+    int    intHealthPoint  = 0;
+    int    intManaPoint    = 0;
+    int    intPower        = 0;
+    int    intDefensive    = 0;
     
     //생성자
     public Character() {
         
     }
     
+    //캐릭터 정보 조회
+    public void printCharacter() {
+        System.out.printf("이름: %s, 역활: %s, 생명력: %d, 마나: %d, 공격력: %d, 방어력: %d", 
+                this.strName, this.strRole, this.intHealthPoint, this.intManaPoint, this.intPower, this.intDefensive);
+        System.out.println();
+    }
     
+    //캐릭터 정보 조회
+    public void printCharacter(int intPlayer) {
+        System.out.printf("%dP => 이름: %s, 역활: %s, 생명력: %d, 마나: %d, 공격력: %d, 방어력: %d", 
+                intPlayer, this.strName, this.strRole, this.intHealthPoint, this.intManaPoint, this.intPower, this.intDefensive);
+        System.out.println();
+    }
     
     //캐릭터 생성
     public void makeCharacter(String strName, int intRole, int intStrength, int intDexterity, int intIntelligence) {
         this.strName         = strName;
-        //this.strRole = strRole;
+        this.intRole         = intRole;
         this.intStrength     = intStrength;
         this.intDexterity    = intDexterity;
         this.intIntelligence = intIntelligence;
         
-        //직업별 능력 설정
-        CharacterClass objClass = new CharacterClass();
-        this.intHealthPoint = objClass.setHealth(intRole);
-        this.intManaPoint   = 100;
-        this.intPower       = objClass.setPower(intStrength, intDexterity, intIntelligence);
-        this.intDefensive   = objClass.setDefensive(intRole, intStrength, intDexterity, intIntelligence);
-        
-        
-        //System.out.printf("이름: %s, 힘: %d, 민첩: %d, 지능: %d, 생명력: d%, 마나: d%, 공격력: %d, 방어력: %d");
+        //역활별 능력 설정
+        CharacterRole objCharacterRole = new CharacterRole(intRole, intStrength, intDexterity, intIntelligence);
+        this.strRole        = objCharacterRole.strRoleName;
+        this.intHealthPoint = objCharacterRole.intHealthPoint;
+        this.intManaPoint   = objCharacterRole.intManaPoint;
+        this.intPower       = objCharacterRole.intPower;
+        this.intDefensive   = objCharacterRole.intDefensive;
         
         return;
     }

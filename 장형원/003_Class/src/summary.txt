@@ -1,0 +1,58 @@
+@상속
+- extends로 상속
+- 부모 겍체 먼저 메모리에 생성하고 자식 객체 메모리에 생성
+- 단일 상속
+
+@타입 변환
+- ParentClass childClass = new ChildClass();
+  -> 부모타임, 자식객체
+- 자동 타입 변환
+  -> 부모 타입으로 선언 후 미리 생성된 자식 객체 할당
+
+@Object
+- 최상위 클래스
+
+@this, super
+
+@내부 클래스
+- 클래스 내부에 다른 클래스가 존재
+- 잘 사용하지 않음
+- 두 클래스의 멤버에 쉽게 접근 가능
+
+@익명 클래스
+- 이름이 없는 클래스
+- 인터페이스나 추상클래스에 주로 이용
+- 재정의 후 바로 사용
+  -> 한 번만 사용하고 버릴 생각으로 사용
+
+@인터페이스
+- implements로 구현
+- 껍데기만 가지고 있고 클래스에서 구현
+- 객체 생성 불가
+
+@인터페이스 vs 추상클래스
+
+@람다식
+- 익명 함수를 이용해서 익명 객체를 생성하기 위한 식
+- 함수적 프로그래밍을 위함
+
+@String class
+- String
+  -> 문자열을 변경하면 새로운 문자열 객체 생성하여 참조
+- StringBuffer, StringBuilder
+  -> 문자열이 변경되면 기존 객체에 추가하여 사용
+  
+@Collections
+- List
+  -> 인덱스로 관리
+  -> 데이터 중복 가능
+  -> Vector, ArrayList, LinkedList
+- Map
+  -> key를 사용하여 관리
+  -> key 중복 불가 (같은 key의 value를 넣게 되면 덮어씀)
+  -> value는 중복 가능
+  -> HashMap, HashTable, Properties
+- Set
+  -> 순서 x
+  -> 데이터 중복 불가
+  -> HashSet
