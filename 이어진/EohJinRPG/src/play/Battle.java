@@ -27,6 +27,9 @@ public class Battle {
 		int 	intAtkCnt		= 1; 				// 공격자 공격 카운트
 		int 	intDefCnt		= 1; 				// 방어자 공격 카운트
 
+		System.out.println("================================================");
+		System.out.println("    전투 시작!!");
+		System.out.println("------------------------------------------------");
 		System.out.printf("전투시간  \t진행상황\n");
 		while(intBattleTime < PlayModule.DEFAULT_BATTLE_MAX_TIME && intPlayerHP > 0 && intNonPlayerHP > 0)
 		{

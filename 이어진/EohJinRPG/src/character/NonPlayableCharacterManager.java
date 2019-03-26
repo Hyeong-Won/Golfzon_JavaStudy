@@ -20,4 +20,16 @@ public class NonPlayableCharacterManager {
 
 		//System.out.println("NonPlayableCharacterManager ();");
 	}
+	
+	public void printNPCList()
+	{
+		System.out.println("================================================");
+		System.out.println("   전투 대상");
+		System.out.println("------------------------------------------------");
+        for( int key : NPC.keySet() ){
+    		System.out.println("  -> " + key + ". " + NPC.get(key).getName());
+        }
+		System.out.println("  -> 9. 나가기");
+        System.out.print("  => 선택 옵션? : ");
+	}
 }

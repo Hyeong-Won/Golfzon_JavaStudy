@@ -51,6 +51,8 @@ public class PlayableCharacter extends Character //implements PrintPlayerStat
 	public void printPlayableCharacterStat()
 	{
 		System.out.printf("================================================\n");
+		System.out.printf("   플레이어 상태\n");
+		System.out.printf("------------------------------------------------\n");
 		System.out.printf(" Name : %s\n", this.strName);
 		System.out.printf(" HP   : %4d / %4d (current / min)\n", this.intHP, this.intMinimumHP);
 		System.out.printf(" Str  : %4d | Int  : %4d | Agi  : %4d\n", this.intStrength, /*this.intIntelligence*/0, this.intAgility);

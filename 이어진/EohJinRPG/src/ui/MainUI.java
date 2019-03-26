@@ -4,12 +4,12 @@ public class MainUI extends UI {
 	
 	public MainUI ()
 	{
-		setMenuName("Main");
-		setMenuOption();
+		setMenuName("메인");
+		setOption();
 	}
 
 	@Override
-	public void setMenuOption() {
+	public void setOption() {
 		mapOption.put(1, "전투");
 		mapOption.put(2, "훈련");
 		mapOption.put(3, "상태");
