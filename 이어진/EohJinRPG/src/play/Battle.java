@@ -30,6 +30,9 @@ public class Battle {
 		System.out.printf("전투시간  \t진행상황\n");
 		while(intBattleTime < PlayModule.DEFAULT_BATTLE_MAX_TIME && intPlayerHP > 0 && intNonPlayerHP > 0)
 		{
+			int temp = intBattleTime;
+			
+			System.out.println();
 			// 공격자와 방어자 공격 타이밍 체크
 			// 공격자가 더 빠르면
 			if(objPlayer.getSpd() * intAtkCnt < objNonPlayer.getSpd() * intDefCnt)
@@ -63,7 +66,7 @@ public class Battle {
 
 			System.out.println("          \t남은체력 - " + objPlayer.getName() + " : " + (intPlayerHP < 0 ? 0 : intPlayerHP) + " VS " + objNonPlayer.getName() + " : " + (intNonPlayerHP < 0 ? 0 : intNonPlayerHP) + "\n");
 
-	        Thread.sleep(100);
+	        Thread.sleep(intBattleTime - temp);
 		}
 		
 		// 결과 출력

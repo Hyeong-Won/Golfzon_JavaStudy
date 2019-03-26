@@ -56,7 +56,6 @@ public class PlayableCharacter extends Character //implements PrintPlayerStat
 		System.out.printf(" Str  : %4d | Int  : %4d | Agi  : %4d\n", this.intStrength, /*this.intIntelligence*/0, this.intAgility);
 		System.out.printf(" Crit : %3d%% | Dod  : %3d%% | Spd  : %4dms\n", getCrit()/100, getDod()/100, getSpd());
 		System.out.printf(" PP   : %4d point\n", this.intPlayPoint);
-		System.out.printf("================================================\n");
 	}
 	
 	// add HP
