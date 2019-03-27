@@ -1,0 +1,35 @@
+package billing;
+
+import java.util.ArrayList;
+
+public class CashManager {
+	private ArrayList<Cash> cash;
+	private int             totalCnt;
+	
+	public CashManager() {
+		this.cash = new ArrayList<Cash>();
+	}
+
+	public int getTotalCnt() {
+		return totalCnt;
+	}
+	
+	public void addCash(Cash cash) {
+		this.cash.add(cash);
+		System.out.println("캐시번호 \'" +cash.getCashNo() +"\' 가 정상 충전되었습니다.");
+	}
+	
+	public int getRemainCash() {
+		int result = 0;
+		for (Cash cash : this.cash) {
+			result += cash.getRemainAmt();
+		}
+		return result;
+	}
+	
+	public void printAllCash() {
+		for (Cash cash : this.cash) {
+			System.out.println(cash);
+		}
+	}
+}

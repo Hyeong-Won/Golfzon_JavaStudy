@@ -199,3 +199,35 @@ error,log,,,"Unhandled event loop exception",1552312033722
 error,log,,,"Unhandled event loop exception",1552312034412
 error,log,,,"Unhandled event loop exception",1552312034610
 error,log,,,"Unhandled event loop exception",1552312034728
+error,log,,,"Unhandled event loop exception",1552312034776
+error,log,,,"Unhandled event loop exception",1552312034777
+error,log,,,"Unhandled event loop exception",1552312034889
+error,log,,,"Unhandled event loop exception",1552312034890
+error,log,,,"Unhandled event loop exception",1552312034934
+error,log,,,"Unhandled event loop exception",1552312034935
+error,log,,,"Unhandled event loop exception",1552312035098
+error,log,,,"Unhandled event loop exception",1552312035100
+error,log,,,"Unhandled event loop exception",1552312035105
+error,log,,,"Unhandled event loop exception",1552312035107
+error,log,,,"Unhandled event loop exception",1552312035224
+error,log,,,"Unhandled event loop exception",1552312035227
+error,log,,,"Unhandled event loop exception",1552312037038
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1552312089047
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.text.contentAssist.proposals",1552312117251
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1552312119023
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.text.contentAssist.proposals",1552312120721
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.text.contentAssist.proposals",1552312121560
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1552312177906
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1552312205510
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1552312678064
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1552312678992
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1552312680372
+closed,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1552312680555
+stopped,bundle,org.eclipse.jst.ws.axis.creation.ui,1.0.700.v201104070312,"org.eclipse.jst.ws.axis.creation.ui",1552312680872
+stopped,bundle,org.eclipse.jst.ws.axis.consumption.ui,1.0.505.v201004211805,"org.eclipse.jst.ws.axis.consumption.ui",1552312680879
+stopped,bundle,org.eclipse.jst.ws.axis.consumption.core,1.0.407.v201104071820,"org.eclipse.jst.ws.axis.consumption.core",1552312680882
+stopped,bundle,org.eclipse.jst.ws.axis2.creation.ui,1.0.104.v201004211805,"org.eclipse.jst.ws.axis2.creation.ui",1552312680890
+stopped,bundle,org.eclipse.jst.ws.axis2.consumption.ui,1.0.103.v201004211805,"org.eclipse.jst.ws.axis2.consumption.ui",1552312680892
+stopped,bundle,org.eclipse.jst.ws.axis2.creation.core,1.0.106.v201004211805,"org.eclipse.jst.ws.axis2.creation.core",1552312680898
+stopped,bundle,org.eclipse.jst.ws.axis2.consumption.core,1.0.105.v201004211805,"org.eclipse.jst.ws.axis2.consumption.core",1552312680904
+stopped,bundle,org.eclipse.jst.ws.axis2.ui,1.0.303.v201003110431,"org.eclipse.jst.ws.axis2.ui",1552312680904

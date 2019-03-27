@@ -1,0 +1,29 @@
+package common;
+
+import billing.CashManager;
+
+public class User {
+	private String          userName;
+	private CashManager     cash;
+	private HoldItemManager holdItem;
+	
+	public CashManager getCash() {
+		return cash;
+	}
+	
+	public HoldItemManager getHoldItem() {
+		return holdItem;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	@Override
+	public String toString() {
+		return userName +" ´ÔÀÇ ÀÜ¾× " + cash.getRemainCash() + " ¿ø, ±¸¸Å ¾ÆÀÌÅÛ °¹¼ö" + holdItem.getTotalCnt();
+	}
+}

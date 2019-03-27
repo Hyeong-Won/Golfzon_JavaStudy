@@ -1,0 +1,65 @@
+package billing;
+
+import java.util.Scanner;
+
+import common.User;
+import common.CommonConst;
+import common.CommonConst.UseState;
+
+public class BillingManager {
+	private User user;
+	
+	public BillingManager(User user) {
+		this.user = user;
+	}
+	
+	public void start() {
+		Scanner scan      = new Scanner(System.in);
+		int     userInput = 0;
+		
+		do {
+			userInput = printMenu(scan);
+			
+			switch(userInput){
+			case CommonConst.CASHINS:
+				insertCash(scan);
+				break;
+			case CommonConst.CASHREFUND:
+				CashManage(scan, 2);
+				break;
+			case CommonConst.SHOWALLUSER:
+				PrintAllUser();
+				break;
+			case CommonConst.TERMINATECODE:
+				PrintAllUser();
+				System.out.println("종료되었습니다.");
+				break;
+			default:
+				System.out.println("1 ~ 5 의 값을 입력해주세요.");
+				break;
+			}
+		} while(userInput != CommonConst.TERMINATECODE);
+		// TODO Auto-generated method stub
+	}
+	
+	public int printMenu(Scanner scan)
+	{
+		System.out.println("1: 캐시충전");
+		System.out.println("2: 캐시환불");
+		System.out.println("3: 전체유저보기");
+		System.out.println("5: 종료");
+		return scan.nextInt(); 
+	}
+	
+	public void insertCash(Scanner scan) {
+		Cash cash;
+		int cashAmt;
+		
+		System.out.println("충전할 금액을 입력하세요.");
+		cashAmt = scan.nextInt();
+		cash    = new Cash();
+		cash.setPayAmt(cashAmt);
+		cash.setUseState(UseState.정상);
+	}
+	
+}

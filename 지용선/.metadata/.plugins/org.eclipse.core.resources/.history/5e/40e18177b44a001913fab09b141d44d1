@@ -1,0 +1,38 @@
+package billing;
+
+import java.util.ArrayList;
+
+import common.HoldItem;
+
+public class CashManager {
+	private ArrayList<Cash> cash;
+	private int             totalCnt;
+	
+	public CashManager() {
+		this.cash = new ArrayList<Cash>();
+	}
+
+	public int getTotalCnt() {
+		return totalCnt;
+	}
+	
+	public void addHoldItem(HoldItem item) {
+		this.cash.add(item);
+	}
+	
+	public int getHoldItemCntByCode(int itemCode) {
+		int result = 0;
+		for (Cash cash : this.cash) {
+			if(cash.get() == itemCode) {
+				result++;
+			}
+		}
+		return result;
+	}
+	
+	public void printAllCash() {
+		for (Cash cash : this.cash) {
+			System.out.println(cash);
+		}
+	}
+}

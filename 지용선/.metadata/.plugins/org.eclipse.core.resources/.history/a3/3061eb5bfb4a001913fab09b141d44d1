@@ -1,0 +1,48 @@
+package common;
+
+import billing.CashManager;
+import common.CommonConst.UseState;
+
+public class User {
+	private String          userName;
+	private int				victoryTime;
+	private int				looseTime;
+	private CashManager     cash;
+	private HoldItemManager holdItem;
+	
+	public User() {
+		cash     = new CashManager();
+		holdItem = new HoldItemManager();
+	}
+	
+	public CashManager getCash() {
+		return cash;
+	}
+	
+	public HoldItemManager getHoldItem() {
+		return holdItem;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	
+	public int getPlayTime() {
+		return playTime;
+	}
+
+	public void setPlayTime(int playTime) {
+		this.playTime = playTime;
+	}
+
+	@Override
+	public String toString() {
+		return userName +" ´ÔÀÇ ÀÜ¾× : " + cash.getRemainCash() + " ¿ø, ±¸¸Å ¾ÆÀÌÅÛ °¹¼ö : " +
+			   (holdItem.getHoldItemCntByCodeCount(CommonConst.ITEMCODE2222,UseState.Á¤»ó) + holdItem.getHoldItemCntByCodeCount(CommonConst.ITEMCODE2222,UseState.»ç¿ë)) + 
+			   ", ½Â¸® È½¼ö : " + playTime;
+	}
+}

@@ -1,0 +1,20 @@
+package common;
+
+import java.util.ArrayList;
+
+public class HoldItemManager {
+	private ArrayList<HoldItem> holdItem;
+	private int                 totalCnt;
+	
+	public HoldItemManager() {
+		this.holdItem = new ArrayList<HoldItem>();
+	}
+
+	public int getTotalCnt() {
+		return totalCnt;
+	}
+	public void addHoldItem(HoldItem item) {
+		this.holdItem.add(item);
+	}
+	
+}
