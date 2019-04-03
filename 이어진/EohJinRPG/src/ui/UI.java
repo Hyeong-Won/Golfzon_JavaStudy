@@ -44,4 +44,6 @@ public abstract class UI //implements UIInterface
 	
 	// 옵션 선택지 설정
 	abstract void setOption();
+	
+	abstract void exeUI() throws InterruptedException;
 }
