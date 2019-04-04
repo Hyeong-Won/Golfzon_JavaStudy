@@ -1,0 +1,5 @@
+T,IornMan,3000,50
+T,Captain,2000,25
+T,Hulk,6000,65
+T,Thor,8000,78
+F,CaptainMarvel,100000,500

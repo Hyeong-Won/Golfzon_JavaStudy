@@ -3,7 +3,7 @@ package character;
 import java.util.HashMap;
 
 public class NonPlayableCharacterManager {
-	public HashMap<Integer, NonPlayableCharacter> NPC = new HashMap<Integer, NonPlayableCharacter>();
+	public static HashMap<Integer, NonPlayableCharacter> NPC = new HashMap<Integer, NonPlayableCharacter>();
 
 	// 생성자
 	public NonPlayableCharacterManager() {
@@ -15,13 +15,10 @@ public class NonPlayableCharacterManager {
 		NPC.put(6,	 new NonPlayableCharacter("도끼오크",	300,	30,		2000,	0,		6500,	30));
 		NPC.put(7,	 new NonPlayableCharacter("오우거",		500,	100,	0,		0,		7000,	35));
 		
-
-		NPC.put(4,	 new NonPlayableCharacter("대장고블린",	100,	100,	0,		0,		7000,	35));
-
 		//System.out.println("NonPlayableCharacterManager ();");
 	}
 	
-	public void printNPCList()
+	public static void printNPCList()
 	{
 		System.out.println("================================================");
 		System.out.println("   전투 대상");
