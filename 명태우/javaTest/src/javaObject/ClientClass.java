@@ -11,6 +11,8 @@ import java.util.Scanner;
 public class ClientClass {
 
     public static void main(String[] args) {
+        int intRetVal = 0;
+        
         //소켓 선언
         Socket objSocket = null;
         
@@ -39,23 +41,33 @@ public class ClientClass {
             objOutStram = objSocket.getOutputStream();
             objDataOutStram = new DataOutputStream(objOutStram);
 
-            while (true) {
+            while (intRetVal == 0) {
                 //데이터 수신
                 strInMsg = objDataInStream.readUTF();
                 System.out.println(strInMsg);
-                strInMsg = objScan.next();
                 
-                //데이터 송신
-                objDataOutStram.writeUTF(strInMsg);
-                objDataOutStram.flush();
+                if (strInMsg == "종료") {
+                    intRetVal = 10;
+                    break;
+                }
+                else {
+                    //데이터 전송
+                    strInMsg = objScan.next();
+                    objDataOutStram.writeUTF(strInMsg);
+                    objDataOutStram.flush();
+                }
                 
             }
+            
+            
+            System.out.println("종료");
+            objSocket.close();
         }
         catch (IOException e) {
             e.printStackTrace();
         }
         catch (Exception e) {
-            
+            e.printStackTrace();
         }
         
         
