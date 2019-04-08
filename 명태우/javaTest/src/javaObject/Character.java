@@ -20,17 +20,26 @@ public class Character {
     }
     
     //캐릭터 정보 조회
-    public void printCharacter() {
-        System.out.printf("이름: %s, 역활: %s, 생명력: %d, 마나: %d, 공격력: %d, 방어력: %d", 
-                this.strName, this.strRole, this.intHealthPoint, this.intManaPoint, this.intPower, this.intDefensive);
-        System.out.println();
-    }
+    //public void printCharacter() {
+    //    System.out.printf("이름: %s, 역활: %s, 생명력: %d, 마나: %d, 공격력: %d, 방어력: %d", 
+    //            this.strName, this.strRole, this.intHealthPoint, this.intManaPoint, this.intPower, this.intDefensive);
+    //    System.out.println();
+    //}
     
     //캐릭터 정보 조회
     public void printCharacter(int intPlayer) {
         System.out.printf("%dP => 이름: %s, 역활: %s, 생명력: %d, 마나: %d, 공격력: %d, 방어력: %d", 
                 intPlayer, this.strName, this.strRole, this.intHealthPoint, this.intManaPoint, this.intPower, this.intDefensive);
         System.out.println();
+    }
+    
+    //캐릭터 정보 조회
+    public String printCharacter() {
+        String strCharacterInfo = null;
+        
+        strCharacterInfo = "이름: " + this.strName + ", 역활: " + this.strRole + ", 생명력: " + this.intHealthPoint + ", 마나: " + this.intManaPoint + ", 공격력: " + this.intPower + ", 방어력: " + this.intDefensive + "\n";
+        
+        return strCharacterInfo;
     }
     
     //캐릭터 생성

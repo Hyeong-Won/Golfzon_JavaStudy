@@ -121,7 +121,7 @@ public class MainClass {
         }
     }
 
-    public static ArrayList<MCUCharacter> createAvengers(ArrayList<MCUCharacter> list, BufferedReader br) throws NumberFormatException, IOException, InvalidDataException {
+    public static void createAvengers(ArrayList<MCUCharacter> list, BufferedReader br) throws NumberFormatException, IOException, InvalidDataException {
         
         String line      = "";
         String[] tempArr = null;
@@ -134,7 +134,6 @@ public class MainClass {
             }
         }
         
-        return list;
     }
     
     public static boolean judgment(MCUCharacter mcuCharacter) {
