@@ -1,27 +1,33 @@
-package play;
+package battle;
 import java.util.Random;
 
 import character.*;
 import character.Character;
 
 public class Battle {
-	private	PlayableCharacter		objPlayer;
-	private	NonPlayableCharacter 	objNonPlayer;	
-	private	String					strBattleLog 	= "";
-	private int						intPlayerHP 	= 0;
-	private int						intNonPlayerHP 	= 0;
+	private	static PlayableCharacter		objPlayer;
+	private	static NonPlayableCharacter 	objNonPlayer;	
+	private	static String					strBattleLog 	= "";
+	private	static int						intPlayerHP 	= 0;
+	private	static int						intNonPlayerHP 	= 0;
 	
 	// 생성자
 	public Battle(PlayableCharacter objPlayer, NonPlayableCharacter objNonPlayer) {
-		this.objPlayer  	= objPlayer;
-		this.objNonPlayer 	= objNonPlayer;
+		Battle.objPlayer  		= objPlayer;
+		Battle.objNonPlayer 	= objNonPlayer;
 		
 		intPlayerHP 	= objPlayer.getHP();
 		intNonPlayerHP 	= objNonPlayer.getHP();
 	}
+	
+	public static void setBattleObject(PlayableCharacter objPlayer, NonPlayableCharacter objNonPlayer)
+	{
+		Battle.objPlayer  	= objPlayer;
+		Battle.objNonPlayer = objNonPlayer;
+	}
 
 	// 전투 시작
-	public String Fight() throws InterruptedException
+	public static String Fight() throws InterruptedException
 	{
 		int 	intBattleTime 	= 0; 				// 전투 시간
 		int 	intAtkCnt		= 1; 				// 공격자 공격 카운트
@@ -31,7 +37,7 @@ public class Battle {
 		System.out.println("    전투 시작!!");
 		System.out.println("------------------------------------------------");
 		System.out.printf("전투시간  \t진행상황\n");
-		while(intBattleTime < PlayModule.DEFAULT_BATTLE_MAX_TIME && intPlayerHP > 0 && intNonPlayerHP > 0)
+		while(intBattleTime < BattleModule.DEFAULT_BATTLE_MAX_TIME && intPlayerHP > 0 && intNonPlayerHP > 0)
 		{
 			int temp = intBattleTime;
 			
@@ -88,7 +94,7 @@ public class Battle {
 	}
 
 	// 공격
-	int attack(Character objAtk, Character objDef)
+	static int attack(Character objAtk, Character objDef)
 	{	
 		System.out.printf("%s의 공격, ", objAtk.getName());
 		
@@ -98,7 +104,7 @@ public class Battle {
 		// 실제 크리티컬 확률 : 크리티컬 확률 - 회피 확률
 		// 크리티컬 계산
 		int intCrit = objAtk.getCrit() - objDef.getDod(); 
-		int intRand = new Random().nextInt(PlayModule.PERCENT_10000); // (0~99)
+		int intRand = new Random().nextInt(BattleModule.PERCENT_10000); // (0~99)
 		if (intRand < intCrit)
 		{
 			intPD *= 2;
@@ -106,7 +112,7 @@ public class Battle {
 		}
 		
 		// 실제 회피 확률 : 회피 확률 - 크리티컬 확률 : -(실제 크리티컬 확률)
-		intRand = new Random().nextInt(PlayModule.PERCENT_10000); // (0~99)
+		intRand = new Random().nextInt(BattleModule.PERCENT_10000); // (0~99)
 		// 회피
 		if (intRand < -intCrit)
 		{
@@ -121,7 +127,7 @@ public class Battle {
 		return intPD;
 	}	
 	
-	boolean chkVictory()
+	static boolean chkVictory()
 	{
 		if(intNonPlayerHP > 0)
 			return false;

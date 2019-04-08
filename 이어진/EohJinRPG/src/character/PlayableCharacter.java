@@ -2,7 +2,10 @@ package character;
 
 public class PlayableCharacter extends Character //implements PrintPlayerStat 
 {
-	
+	// 싱글톤
+	public static final PlayableCharacter PC = new PlayableCharacter("player");
+    public static PlayableCharacter getInstance(){ return PC;}
+    
 	private int 	intMinimumHP;		// 최소 체력
 	private int 	intStrength;		// 힘
 	//private int		intIntelligence;	// 지능
@@ -10,16 +13,8 @@ public class PlayableCharacter extends Character //implements PrintPlayerStat
 	private int		intPlayPoint;		// 행동력
 
 	// 생성자
-	/*
-	public PlayableCharacter ()
-	{
-		setPlayableCharacter ();
-		
-		//System.out.println("PlayableCharacter ();");
-	}
-	*/
 	
-	public PlayableCharacter (String strName)
+	private PlayableCharacter (String strName)
 	{
 		setPlayableCharacter (strName);
 		

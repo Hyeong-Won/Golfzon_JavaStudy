@@ -1,0 +1,17 @@
+@예외 vs 에러
+
+@예외처리
+- 프로그램에 문제가 있는 실행에 문제가 없도록 예방하는 것
+
+@CheckdException vs UncheckedException
+- 강제적                               선택적
+
+@Exception 클래스
+
+@try ~ catch ~ finally
+
+@throws
+- 예외 발생시 호출한 곳으로 예외를 던짐
+
+@스트림
+- 데이터가 오고가는 길
