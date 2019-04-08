@@ -49,10 +49,9 @@ public class TrainingUI extends UI {
 				switch(intOption)
 				{
 				case 1:
-					break;
 				case 2:
-					break;
 				case 3:
+					
 					break;
 				case 9:
 					return;
@@ -63,6 +62,10 @@ public class TrainingUI extends UI {
 		{
 			System.out.println("잘못된 형식을 입력하셨습니다.");
 			//e.printStackTrace();
+		}
+		catch (Exception e)
+		{
+			
 		}
 		finally
 		{
