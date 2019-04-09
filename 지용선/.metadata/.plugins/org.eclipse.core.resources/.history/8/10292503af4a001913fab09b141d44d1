@@ -1,5 +1,0 @@
-package common;
-
-public class CommonConst {
-	public static enum useState{ 정상, 취소, 회수 };
-}
