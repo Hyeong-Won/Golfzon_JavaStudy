@@ -8,7 +8,7 @@ public class PlayableCharacter extends Character //implements PrintPlayerStat
     
 	private int 	intMinimumHP;		// ÃÖ¼Ò Ã¼·Â
 	private int 	intStrength;		// Èû
-	//private int		intIntelligence;	// Áö´É
+	private int		intIntelligence;	// Áö´É
 	private int		intAgility;			// ¹ÎÃ¸
 	private int		intPlayPoint;		// Çàµ¿·Â
 
@@ -26,11 +26,47 @@ public class PlayableCharacter extends Character //implements PrintPlayerStat
 	{
 		intMinimumHP	= CharacterModule.DEFAULT_MINIMUM_HP;
 		intStrength 	= 0;
-		//intIntelligence = 0;
+		intIntelligence = 0;
 		intAgility 		= 0;
 		intPlayPoint	= CharacterModule.DEFAULT_MAX_PLAY_POINT;
 		
 		//System.out.println("setPlayableCharacter ();");
+	}
+
+	// get Strength
+	public int getStr() {
+		return intStrength;
+	}
+	
+	// add Strength
+	public int addStr(int intRequiredHP)
+	{
+		intHP -= intRequiredHP; 
+		return ++intStrength;
+	}
+
+	// get Intelligence
+	public int getInt() {
+		return intIntelligence;
+	}
+	
+	// add Intelligence
+	public int addInt(int intRequiredHP)
+	{
+		intHP -= intRequiredHP;
+		return ++intIntelligence;
+	}
+
+	// get Agility
+	public int getAgi() {
+		return intAgility;
+	}
+	
+	// add Agility
+	public int addAgi(int intRequiredHP)
+	{
+		intHP -= intRequiredHP;
+		return ++intAgility;
 	}
 
 	private void setPlayableCharacter (String strName)
@@ -50,7 +86,7 @@ public class PlayableCharacter extends Character //implements PrintPlayerStat
 		System.out.printf("------------------------------------------------\n");
 		System.out.printf(" Name : %s\n", this.strName);
 		System.out.printf(" HP   : %4d / %4d (current / min)\n", this.intHP, this.intMinimumHP);
-		System.out.printf(" Str  : %4d | Int  : %4d | Agi  : %4d\n", this.intStrength, /*this.intIntelligence*/0, this.intAgility);
+		System.out.printf(" Str  : %4d | Int  : %4d | Agi  : %4d\n", this.intStrength, this.intIntelligence, this.intAgility);
 		System.out.printf(" Crit : %3d%% | Dod  : %3d%% | Spd  : %4dms\n", getCrit()/100, getDod()/100, getSpd());
 		System.out.printf(" PP   : %4d point\n", this.intPlayPoint);
 	}
@@ -60,19 +96,4 @@ public class PlayableCharacter extends Character //implements PrintPlayerStat
 	{
 		intHP += intRewardHP;
 	}
-
-	/*
-	@Override
-	public void print(String strName, int intHP, int intMinimumHP, int intStrength, int intAgility, int intCritical,
-			int intDodge, int intAttackSpeed, int intPlayPoint) {
-		System.out.printf("================================================\n");
-		System.out.printf(" Name : %s\n", this.strName);
-		System.out.printf(" HP   : %4d / %4d (current / min)\n", this.intHP, this.intMinimumHP);
-		System.out.printf(" Str  : %4d | Int  : %4d | Agi  : %4d\n", this.intStrength, *//*this.intIntelligence*//*0, this.intAgility);
-		System.out.printf(" Crit : %3d%% | Dod  : %3d%% | Spd  : %4dms\n", getCrit()/100, getDod()/100, getSpd());
-		System.out.printf(" PP   : %4d point\n", this.intPlayPoint);
-		System.out.printf("================================================\n");
-		
-	}
-	*/
 }

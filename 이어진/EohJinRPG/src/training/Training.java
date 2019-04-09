@@ -1,36 +1,124 @@
 package training;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.HashMap;
 
+import character.PlayableCharacter;
+
 public class Training {
-	public static HashMap<Integer, Integer> RequiredHP = new HashMap<Integer, Integer>();
-		
-	public Training()
-	{
-		
+	private static HashMap<Integer, Integer> RequiredHP = new HashMap<Integer, Integer>();
+
+	public Training() {
+
 	}
 	
-	public static void training(int intAbility)
+	// get Required HP
+	public static int getRequiredHP(int intAbility)
 	{
-		
-		switch(intAbility)
-		{
-			// Èû
-			case 1:
-				break;
-			// Áö´É
-			case 2:
-				break;
-			// ¹ÎÃ¸
-			case 3:
-				break;
-			case 9:
-				return;
+		int intAbilityLevel = 0;
+		switch (intAbility) {
+		// Èû
+		case 1:
+			intAbilityLevel = PlayableCharacter.getInstance().getStr();
+			break;
+		// Áö´É
+		case 2:
+			intAbilityLevel = PlayableCharacter.getInstance().getInt();
+			break;
+		// ¹ÎÃ¸
+		case 3:
+			intAbilityLevel = PlayableCharacter.getInstance().getAgi();
+			break;
 		}
-	}
-	
-	public static void setRequiredHP ()
-	{
 		
+		return RequiredHP.get(intAbilityLevel + 1);
+	}
+
+	public static void training(int intAbility) {
+		int intRequiredHP 	= 0;
+		int intAbilityLevel = 0;
+		AddAbilityInterface func = null;
+		String strAbility = null;
+		
+		switch (intAbility) {
+		// Èû
+		case 1:
+			intAbilityLevel = PlayableCharacter.getInstance().getStr();
+			func = new AddAbilityInterface() {				
+				@Override
+				public int addAbility(int intRequiredHP) {
+					return PlayableCharacter.getInstance().addStr(intRequiredHP);
+				}
+			};
+			strAbility = "Èû";
+			break;
+		// Áö´É
+		case 2:
+			intAbilityLevel = PlayableCharacter.getInstance().getInt();
+			func = new AddAbilityInterface() {				
+				@Override
+				public int addAbility(int intRequiredHP) {
+					return PlayableCharacter.getInstance().addInt(intRequiredHP);
+				}
+			};
+			strAbility = "Áö´É";
+			break;
+		// ¹ÎÃ¸
+		case 3:
+			intAbilityLevel = PlayableCharacter.getInstance().getAgi();
+			func = new AddAbilityInterface() {				
+				@Override
+				public int addAbility(int intRequiredHP) {
+					return PlayableCharacter.getInstance().addAgi(intRequiredHP);
+				}
+			};
+			strAbility = "¹ÎÃ¸";
+			break;
+		}
+		
+		intRequiredHP = RequiredHP.get(intAbilityLevel + 1);
+		if(PlayableCharacter.getInstance().getUsableHP() < intRequiredHP)
+		{
+			System.out.println("Ã¼·ÂÀÌ ºÎÁ·ÇÕ´Ï´Ù.");
+			return;
+		}
+				
+		System.out.println(strAbility + "ÀÌ " + func.addAbility(intRequiredHP) + "·Î »ó½ÂÇÏ¿´½À´Ï´Ù.");
+	}
+
+	public static void setRequiredHP() {
+		// »ó´ë °æ·Î
+		// File.separator : ¿î¿µÃ¼Á¦ »ó°ü ¾ø´Â ±¸ºÐÀÚ
+		String strFilePath = "data" + File.separator + "ability.txt";
+		//File test = new File(strFilePath);
+		//System.out.println(test.getAbsolutePath());
+
+		BufferedReader objBR = null;
+		FileReader objFR = null;
+		try {
+			objFR = new FileReader(strFilePath);
+			objBR = new BufferedReader(objFR);
+
+			String strLine = null;
+			String[] arrText = null;
+
+			while ((strLine = objBR.readLine()) != null) {
+				// ¹è¿­¿¡ Àß¶ó¼­ ³Ö°í
+				arrText = strLine.split(" ");
+				// Map¿¡ ÀÔ·Â
+				RequiredHP.put(Integer.parseInt(arrText[0]), Integer.parseInt(arrText[1]));
+			}
+
+			/*
+	        for( int key : RequiredHP.keySet() ){
+	    		System.out.println(key + " -> " + RequiredHP.get(key));
+	        }
+	        */
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

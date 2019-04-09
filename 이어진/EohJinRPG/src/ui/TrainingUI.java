@@ -4,6 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import character.PlayableCharacter;
+import training.Training;
 
 public class TrainingUI extends UI {
 	public TrainingUI ()
@@ -32,8 +33,9 @@ public class TrainingUI extends UI {
 	{
 		System.out.println("------------------------------------------------");
         for( int key : mapOption.keySet() ){
-    		System.out.printf("  -> " + key + ". " + mapOption.get(key) + ((key != 9) ? "\t/ 필요 HP : " + 0 : "") + "\n");
+    		System.out.printf("  -> " + key + ". " + mapOption.get(key) + ((key != 9) ? "\t/ 필요 HP : " + Training.getRequiredHP(key) : "") + "\n");
         }
+        System.out.println("  -> 가용 HP : " + PlayableCharacter.getInstance().getUsableHP());
         System.out.print("  => 선택 옵션? : ");
 	}
 	
@@ -51,11 +53,12 @@ public class TrainingUI extends UI {
 				case 1:
 				case 2:
 				case 3:
-					
+					Training.training(intOption);
 					break;
 				case 9:
 					return;
 				}
+				intOption = 0;
 			}
 		}
 		catch (InputMismatchException e)

@@ -3,8 +3,6 @@ package ui;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import battle.Battle;
-import character.NonPlayableCharacterManager;
 import character.PlayableCharacter;
 
 public class MainUI extends UI {
@@ -32,9 +30,9 @@ public class MainUI extends UI {
 		try
 		{
 			printDefaultUI();
-			int intOption = s.nextInt();
 			while(true)
 			{
+				int intOption = s.nextInt();
 				switch(intOption)
 				{
 				// 전투 메뉴
@@ -53,7 +51,6 @@ public class MainUI extends UI {
 					return;
 				}
 				printDefaultUI();
-				intOption = s.nextInt();
 			}
 		}
 		catch (InputMismatchException e)
