@@ -11,36 +11,33 @@ import java.util.Scanner;
 public class ClientClass {
 
     public static void main(String[] args) {
-        int intRetVal = 0;
+        int    intRetVal = 0;
+        String strInMsg  = null;
         
         //소켓 선언
         Socket objSocket = null;
         
         //입출력 선언
-        InputStream objInStream = null;
-        DataInputStream objDataInStream = null;
-        
-        OutputStream objOutStram = null;
+        InputStream      objInStream     = null;
+        DataInputStream  objDataInStream = null;
+        OutputStream     objOutStram     = null;
         DataOutputStream objDataOutStram = null;
         
-        Scanner objScan = null;
-        
-        String strInMsg = null;
-        String strOutMsg = null;
+        Scanner objScan  = null;
         
         try {
-            objScan          = new Scanner(System.in);
+            objScan = new Scanner(System.in);
             
             //서버 연결
             objSocket = new Socket("127.0.0.1", 9000);
             System.out.println("서버 연결");
             
             //입출력 설정
-            objInStream = objSocket.getInputStream();
+            objInStream     = objSocket.getInputStream();
             objDataInStream = new DataInputStream(objInStream);
-            objOutStram = objSocket.getOutputStream();
+            objOutStram     = objSocket.getOutputStream();
             objDataOutStram = new DataOutputStream(objOutStram);
-
+            
             while (intRetVal == 0) {
                 //데이터 수신
                 strInMsg = objDataInStream.readUTF();
@@ -56,9 +53,7 @@ public class ClientClass {
                     objDataOutStram.writeUTF(strInMsg);
                     objDataOutStram.flush();
                 }
-                
             }
-            
             
             System.out.println("종료");
             objSocket.close();
@@ -69,10 +64,6 @@ public class ClientClass {
         catch (Exception e) {
             e.printStackTrace();
         }
-        
-        
-        
-        
         
     }
 }
