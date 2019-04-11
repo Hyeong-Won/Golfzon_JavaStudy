@@ -27,11 +27,11 @@ public class MainClass {
         
         try {
             
-            fi = new File("D:\\Study\\Golfzon_JavaStudy\\장형원\\004_Finish\\createAvengers.txt");
+            fi = new File("/Users/hyeong-won/Desktop/study/JAVA/Golfzon_JavaStudy/장형원/004_Finish/createAvengers.txt");
             fr = new FileReader(fi);
             br = new BufferedReader(fr);
             
-            fo = new File("D:\\Study\\Golfzon_JavaStudy\\장형원\\004_Finish\\result.txt");
+            fo = new File("/Users/hyeong-won/Desktop/study/JAVA/Golfzon_JavaStudy/장형원/004_Finish/result.txt");
             fw = new FileWriter(fo, true);
             
             list = new ArrayList<MCUCharacter>();
