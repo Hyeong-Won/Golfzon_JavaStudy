@@ -1,7 +1,7 @@
 @예외 vs 에러
 
 @예외처리
-- 프로그램에 문제가 있는 실행에 문제가 없도록 예방하는 것
+- 프로그램 실행에 문제가 없도록 예방하는 것
 
 @CheckdException vs UncheckedException
 - 강제적                               선택적

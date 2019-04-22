@@ -58,7 +58,7 @@ public class MainClass {
             }.fight();
 
             len = list.size();
-//            len = 9;
+            len = 9;
 
             while (true) {
 
