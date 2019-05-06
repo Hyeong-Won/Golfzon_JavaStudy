@@ -1,5 +1,6 @@
 package main;
 
+import training.Training;
 import ui.MainUI;
 
 public class Main {
@@ -8,6 +9,8 @@ public class Main {
 	{
 		try
 		{
+			Training.setRequiredHP();
+			
 			// ∏ﬁ¿Œ UI
 			MainUI		objMainUI		= new MainUI();
 			

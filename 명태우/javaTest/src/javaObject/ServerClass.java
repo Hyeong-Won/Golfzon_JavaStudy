@@ -19,44 +19,29 @@ public class ServerClass {
     public static Character            objCharacter1P   = null;
     public static Character            objCharacter2P   = null;
     
-
     //입출력 선언
-    public static InputStream objInStream = null;
-    public static DataInputStream objDataInStream = null;
-    public static OutputStream objOutStram = null;
+    public static InputStream      objInStream     = null;
+    public static DataInputStream  objDataInStream = null;
+    public static OutputStream     objOutStram     = null;
     public static DataOutputStream objDataOutStram = null;
     
-    //메뉴 선택 문자열
-    public static String strOutMsg = null;
     
     public static void main(String[] args) {
+        int    intRetVal = 0;
+        int    intInMsg  = 0;
+        String strInMsg  = null;
+        
         //서버 소켓 선언
         ServerSocket objServerSocket = null;
         Socket       objSocket       = null;
         
-        //입출력 선언
-        //InputStream objInStream = null;
-        //DataInputStream objDataInStream = null;
-        //OutputStream objOutStram = null;
-        //DataOutputStream objDataOutStram = null;
         
-        String strInMsg = null;
-        String strOutMsg = null;
-        
-        int    intInMsg = 0;
-        
-        int intRetVal = 0;
-                
-                
         try {
-            
-            
             //캐릭터 리스트
             arrCharacterList = new ArrayList<Character>();
             
             //샘플 케릭터 생성
             arrCharacterList = makeCharacterSample();
-            
             
             System.out.println("서버 시작");
             
@@ -66,16 +51,15 @@ public class ServerClass {
             System.out.println("클라이언트 연결 : " + objSocket);
             
             //입출력 설정
-            objInStream = objSocket.getInputStream();
+            objInStream     = objSocket.getInputStream();
             objDataInStream = new DataInputStream(objInStream);
-            objOutStram = objSocket.getOutputStream();
+            objOutStram     = objSocket.getOutputStream();
             objDataOutStram = new DataOutputStream(objOutStram);
             
             objDataOutStram.writeUTF(CommonModule.MENU);
             objDataOutStram.flush();
             
             while (intRetVal == 0) {
-
                 //데이터 수신
                 strInMsg = objDataInStream.readUTF();
                 System.out.println("메뉴 :" + strInMsg);
@@ -115,16 +99,10 @@ public class ServerClass {
                     System.out.println("그만~~~");
                     break;
                 }
-                
-                
-                //데이터 송신
-                //objDataOutStram.writeUTF("");
-                //objDataOutStram.flush();
             }
             
             System.out.println("종료 " + intRetVal);
             objServerSocket.close();
-            
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -157,11 +135,8 @@ public class ServerClass {
                 e.printStackTrace();
             }
         }
-        
-        
-        
-        
     }
+    
     //캐릭터 생성(샘플)
     private static ArrayList<Character> makeCharacterSample() {
         ArrayList<Character> arrCharacterList = new ArrayList<Character>();
@@ -312,10 +287,10 @@ public class ServerClass {
             
             while (objCharacter1P.intHealthPoint > 0 && objCharacter2P.intHealthPoint > 0) {
                 if (objCharacter1P.intHealthPoint > 0) {
-                    castAction(objCharacter1P, objCharacter2P);
+                    castAction(objCharacter1P, objCharacter2P, 1);
                 }
                 if (objCharacter2P.intHealthPoint > 0) {
-                    castAction(objCharacter2P, objCharacter1P);
+                    castAction(objCharacter2P, objCharacter1P, 2);
                 }
             }
             
@@ -339,17 +314,19 @@ public class ServerClass {
     }
     
     //캐릭터 액션
-    public static void castAction(Character objCharacter4Att, Character objCharacter4Def) {
+    public static void castAction(Character objCharacter4Att, Character objCharacter4Def, int intPlayer) {
         int    intAction    = 0;
         int    intActionNo  = 0;
         
         Cast   objCast      = null;
         StringBuilder strSBCharacter = null;
         ArrayList<HashMap<String, String>> arrSkillList = null;
+        Random objRandom = null;
         
         try {
             strSBCharacter = new StringBuilder();
             arrSkillList = new ArrayList<HashMap<String, String>>();
+            objRandom = new Random();
             
             //각 역활의 시전 클래스 - 추상 클래스
             switch(objCharacter4Att.intRole) {
@@ -371,38 +348,50 @@ public class ServerClass {
             //스킬 세팅
             arrSkillList = objCast.getSkill();
             
-            strSBCharacter.append("1 공격\n");
-            
-            //스킬 설명 출력
-            for (int i = 0; i < arrSkillList.size(); i++) {
-                intActionNo = i + 2;
-                strSBCharacter.append(intActionNo + " 스킬 " + arrSkillList.get(i).get("name") + " -> " + arrSkillList.get(i).get("desc") + "\n");
+            if (intPlayer == 1) {
+                strSBCharacter.append("1 공격\n");
+                
+                //스킬 설명 출력
+                for (int i = 0; i < arrSkillList.size(); i++) {
+                    intActionNo = i + 2;
+                    strSBCharacter.append(intActionNo + " 스킬 " + arrSkillList.get(i).get("name") + " -> " + arrSkillList.get(i).get("desc") + "\n");
+                }
+                
+                strSBCharacter.append(objCharacter4Att.strName + "선택 하시오\n");
+                
+                //데이터 전송
+                objDataOutStram.writeUTF(strSBCharacter.toString());
+                objDataOutStram.flush();
+                
+                //데이터 수신
+                intAction = Integer.parseInt(objDataInStream.readUTF());
+                System.out.println("\t1P 액션 : " + intAction);
+            }
+            else {
+                intAction = objRandom.nextInt(3) + 1;
+                System.out.println("\t2P 액션 : " + intAction);
             }
             
-            strSBCharacter.append(objCharacter4Att.strName + "선택 하시오\n");
-            
-            //데이터 전송
-            objDataOutStram.writeUTF(strSBCharacter.toString());
-            objDataOutStram.flush();
-            
-            //데이터 수신
-            intAction = Integer.parseInt(objDataInStream.readUTF());
-            System.out.println("\t액션 : " + intAction);
+            //초기화
+            strSBCharacter.setLength(0);
             
             if (intAction == 1) {
                 //공격
+                strSBCharacter.append("\t공격 : " + objCharacter4Att.strName + " -> " + objCharacter4Def.strName + "\n");
                 objCast.castAttack(objCharacter4Att, objCharacter4Def);
             }
             else if (intAction == 2) {
                 //스킬 시전 - 추상 메서드
                 objCast.castSkill(arrSkillList.get(0).get("name"), objCharacter4Att, objCharacter4Def);
+                strSBCharacter.append("\t스킬 - " + arrSkillList.get(0).get("name") + " : " + objCharacter4Att.strName + " -> " + objCharacter4Def.strName + "\n");
             }
             else if(intAction == 3) {
                 //스킬 시전 - 추상 메서드
                 objCast.castSkill(arrSkillList.get(1).get("name"), objCharacter4Att, objCharacter4Def);
+                strSBCharacter.append("\t스킬 - " + arrSkillList.get(1).get("name") + " : " + objCharacter4Att.strName + " -> " + objCharacter4Def.strName + "\n");
             }
             
-            strSBCharacter.setLength(0);
+            strSBCharacter.append("----------------------------------------------------------------------------------------------------");
             strSBCharacter.append("\t1P 캐릭터 : " + objCharacter1P.printCharacter());
             strSBCharacter.append("\t2P 캐릭터 : " + objCharacter2P.printCharacter());
             strSBCharacter.append("----------------------------------------------------------------------------------------------------");
@@ -430,8 +419,6 @@ public class ServerClass {
         
         return;
     }
-    
-    
     
     
 }

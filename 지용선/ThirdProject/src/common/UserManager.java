@@ -18,9 +18,11 @@ public class UserManager {
 		else {
 			System.out.println("이미 등록된 사용자입니다.");
 		}
+		
 	}
 	
 	public User findUserByName(String name) {
+		
 		for (User user : this.user) {
 			if(user.getUserName().equals(name)) {
 				return user;
@@ -30,6 +32,7 @@ public class UserManager {
 	}
 	
 	public void printAllUser() {
+		
 		for (User user : this.user) {
 			System.out.println(user);
 		}
