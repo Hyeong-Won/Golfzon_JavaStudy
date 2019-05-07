@@ -1,0 +1,23 @@
+ 
+ 
+ 1. 웹 프로그램 : 인터넷 서비스를 이용하여 서로 다른 구성요소(PC)들이 통신할 수 있는 프로그램
+ 2. 프로토콜(Protocol) : 통신하기 위한 규약(HTTP, FTP, SMTP, POP)
+    2-1. HTTP(HyperTextTransferProtocol) : 메시지 교환용. 요청(Request)와 응답(Response)로 구성.
+    2-2. FTP(File TransferProtocol) : 파일 교환용
+    2-3. SMTP(SimpleMailTransferProtocol) : 간이 메일 전송용
+    2-4. POP(PostOfficeProtocol) : 메일 수신용
+ 3. WebServer : Html - 정적데이터, Container - 동적데이터
+ 
+ 4. JSP 웹 컨테이너 구조 : xxx.jsp --request--> 웹 컨테이너(tomcat)[xxx._jsp.java --> xxx_jsp.class --> xxx_jsp.obj] --response--> HTML
+ 5. Servlet 웹 컨테이너 구조 : Browser --request--> 웹 컨테이너(tomcat)[xxx.java --> xxx.class --> xxx.obj] --response--> Browser
+ 
+ 6. Servlet 매핑 : HTML문서에서 Servlet으로 요청을 보내기 위해.
+    6-1. web.xml
+    6-2. Annotation
+ 
+ 7. Servlet 생명주기 : @PostConstruct(생성 전) --> init()(초기화) --> service(실행, doGet/doPost) --> destroy()(제거) --> @PreDestroy(제거 후)
+ 
+ 
+ 
+ 
+ 
