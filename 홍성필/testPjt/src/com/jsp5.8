@@ -1,0 +1,103 @@
+----------------------1,2-----------------------------------------------------
+
+프로토콜
+인터넷 객체와 Web Server와 요청,응답 
+통신을 하기위한 규약  HTTP,FTP,SMTP,POP
+
+
+user -> web server -> data base
+
+
+user -> web server : Request
+web server -> user : Response
+
+
+web server -> data base : query
+data base -> web server : result
+
+
+web server 
+정적 데이터: HTML
+동적 데이터 : Container 
+
+
+tomcat 8.5v 설치 적용
+localhost:8090
+
+------------------------3,4,5---------------------------------------------------
+
+웹컨테이너 
+                                                  웹 컨테이너
+xxx.jsp -> xxx_jsp.java -> xxx_jsp.class -> xxx_jsp.obj -> HTML
+      request                                        response
+
+
+localhost:8090/content/파일명.jsp
+
+
+servlet mapping
+ web.xml
+
+
+  <servlet>
+      <servlet-name>servletEx</servlet-name>
+      <servlet-class>com.servlet.ServletEx</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+        <servlet-name>servletEx</servlet-name>
+        <url-pattern>/SE</url-pattern>
+  </servlet-mapping>
+추가
+
+
+java annotation
+@WebServlet("/SE1")
+
+-----------------------6,7,8----------------------------------------------------
+
+Servlet request, response
+
+HttpServletRequest,  HttpServletResponse
+요청과 응답에 대한 객체
+
+HttpServletRequest
+
+     request
+user ->  servlet
+
+     response
+user <- servlet
+
+Servlet Life-Cycle
+사용자의 요청에 의해서 생성된 servlet의 생명 주기(생성,실행,종료)
+
+@postConstruct 서비스준비
+
+init() 생성 -공통적인일 로그인시 아이디와 비밀번호받기
+
+service 일하는단계  -> doGet()
+
+destroy() 소멸 -db자원해제
+
+@PreDestroy 서블릿종료
+
+웹컨테이너가 호출해줌 
+
+form 데이터 처리
+사용자의 form 데이터를 Servlet에서 처리
+                    Requst
+Browser   ->  Data  ->  servlet(웹컨테이너)
+
+doGet
+데이터가 웹 브라우저 URL에 노출되어 웹서버로 전송
+보안에 약하다
+method="get"
+길이의 제한이 있음.
+
+doPost
+데이터가 HTTP Request에 포함되어 웹서버로 전송
+맵핑정보만 노출 보안에 강하다.
+
+하나의 데이터 String xxx = request.getParameter
+여러개 String[] xxxx = request.getParameterValues
