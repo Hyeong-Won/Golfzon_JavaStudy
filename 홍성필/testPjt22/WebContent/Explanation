@@ -1,0 +1,75 @@
+jsp 스크립트
+서블릿
+.java -> .class
+
+
+jsp
+.jsp -> _jsp.java -> _jsp.class
+
+
+window -> Preferences -> web -> jspfile -> templates -> 포맷생성
+
+
+선언태그 <%! %> JSP 페이지에서 java의 멤버 변수 또는 메서드 선언
+주석태그 <!-- --> 컴퍼일시  아예 안가져옴 <%-- %>
+
+
+스크립트태그 <% %> jsp페이지에서 java코드를 넣기 위한태그
+표현식 태그 Java의 변수 및 메서드의 반환값을 출력하는 태그
+
+
+지시어 <%@ %> 서버에서 jsp페이지를 처리하는 방법에 대한 정의
+1. page: 페이지 기본 설정
+2. include: include file 설정
+3. taglib:외부 라이브러리 태그 설정
+
+
+jsp request, response
+form을 이용하여 사용자의 객체를 받음
+
+
+request
+getParameter()
+getParameterValues()
+response
+sendRedirect("second.jsp") 
+
+
+
+
+JSP내장객체
+config 
+application
+out
+exception
+
+
+config 객체(해당 서블릿에서만 공유)
+web.xml       config.getInitParameter()        JSP
+init param     ---------------------------->init Param
+
+
+
+
+application 객체(공통적으로 쓰이는것들)
+web.xml               application.getInitParameter()
+context param     ---------------------------------> 여러개의 jsp
+application.setAttribute() 속성을 정해주고
+(String)application.getAttribute() 정해준 속성을 가져옴
+
+
+out객체
+html 코드 출력
+out.print();
+
+
+exception 객체
+<%@ errorPage = "errorPage.jsp" %>
+
+
+errorPage.jsp
+<%@ page isErrorPage="true" %>
+
+
+Servlet 데이터 공유
+Servlet parameter
