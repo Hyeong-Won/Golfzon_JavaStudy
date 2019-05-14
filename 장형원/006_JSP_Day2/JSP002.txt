@@ -1,0 +1,42 @@
+#Servlet
+ - xxx.java -> xxx.class
+ 
+#JSP
+ - xxx.jsp -> xxx_jsp.java -> xxx_jsp.class
+ 
+#선언 태그
+ - java의 변수, 메서드를 선언
+ - <%! ... %>
+ 
+#주석
+ - HTML : <!-- ... -->
+ - JSP  : <%-- ... --%>
+ 
+#스크립틀릿 태그
+ - jsp에 java코드를 넣을때 사용
+ - <% ... %>
+
+#표현식 태그
+ - java의 변수 및 메서드의 반환값을 출력
+ - <%= ... %>
+ 
+#지시어
+ - 서버에서 jsp 페이지를 처리하는 방법에 대한 정의
+ - <%@ ... %>
+ 
+#내장객체
+ @request
+ @response
+ @config
+  - 설정한 파일에서 사용할 값 설정
+  - init-param에서 설정
+ @application
+  - 어플리케이션 전체에서 공유되는 값 설정
+  - context-param에서 설정
+ @out
+  - out.print 로해서 html 코드 작성
+ @exception
+  - 에러페이지를 설정해서 예외가 발생하였을 경우 페이지 이동
+  
+#서블릿 데이터 공유
+ - config, application 객체를 사용하여 공유
