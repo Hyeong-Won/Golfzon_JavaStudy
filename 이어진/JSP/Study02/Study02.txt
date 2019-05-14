@@ -1,0 +1,30 @@
+* Servlet vs JSP
+ - Servlet : 순수 자바 코드로만 이뤄져있음
+             .java 확장자
+             컴파일을 하면 .class 파일이 만들어짐
+
+ - JSP : html + java
+         .jsp 확장자
+         컨테이너가 _jsp.java 파일로 만들어주고
+         컴파일러가 _jsp.class 파일로 만들어줌
+
+* format을 만들어서 쓸 수 있음
+
+* 선언 태그 : <%! %>
+  주석 태그 : <!-- --> (HTML)
+              <%-- --> (JSP)
+  스크립트릿 태그 : <% %> (JSP 페이지에서 Java 코드를 넣기 위한 태그)
+  표현식 태그 : Java의 변수 및 메서드의 반환 값을 출력하는 태그
+
+* 지시어
+  page : 페이지 기본 설정 - <% page 속성="속성 값">
+  include : include file 설정 - <% include file="파일명">
+  taglib : 외부 라이브러리 태그 설정 - <% taglib uri=“uri” prefix="네임스페이스명">
+
+* Request : 사용자 요청을 담당하는 객체
+  Response : 응답을 담당하는 요청
+
+* config 객체 : 데이터를 공유하는 객체?
+  application 객체 : application 전체의 데이터를 공유하는 객체
+  out 객체 : 출력을 해주는 객체
+  exception 객체 : 예외를 처리해주는 객체
