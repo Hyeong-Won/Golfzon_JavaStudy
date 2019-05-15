@@ -28,10 +28,10 @@ public class HelloServlet extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-    /**
-     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-     */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("-- doGet : Servlet 실행 --");
         
         // TODO Auto-generated method stub
@@ -50,17 +50,16 @@ public class HelloServlet extends HttpServlet {
         out.print("</html>");
 	}
 
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-     */
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("-- doPost : Servlet 실행 --");
-        
         // TODO Auto-generated method stub
         doGet(request, response);
-    }
-    
-    
+	}
+	
+	
     //생명 주기
     @PostConstruct
     public void fnPostConstuct() {
@@ -82,5 +81,4 @@ public class HelloServlet extends HttpServlet {
         System.out.println("-- PreDestroy : Servlet 제거 후 --");
     }
     
-
 }

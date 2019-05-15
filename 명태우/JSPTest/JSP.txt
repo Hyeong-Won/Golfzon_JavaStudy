@@ -19,5 +19,54 @@
  
  
  
- 
- 
+ <태그>
+ 1. 선언 태그 : Java 맴버변수 또는 메서드 선언
+    <%! %>
+    
+ 2. 주석 태그
+    html : <!-- -->
+    jsp  : <%-- --%>
+    
+ 3. 스크립트릿 태그 : Java 코드 사용
+    <% %>
+    
+ 4. 표션식 태그 : Java 변수 및 메서드 반환값 출력
+    num = <%=num %>
+    
+ 5. 지시어
+    1. page : 기본 설정 --> <% page 속성 = "속성값" >
+        <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+    2. include : include file 설정 --> <% include file = "파일명" >
+        <%@ include file-"header.jsp"%>
+    3. taglib : 외부라이브러리 태그 설정 --> <% taglib uri = "uri" prefix = "네임스페이스명" >
+        <%@ taglib uri="http://java.sum.com" prefix="c"%>
+    
+<request, response>
+1. request : 요청
+    request.getParameter("name");
+    request.getParameterValues("name");
+2. response : 응답
+    response.sendRedirect("response.jsp");
+
+<JSP 내장객체>
+1. 컨텍스트 초기화 : context-param
+    1. 웹 어플리케이션에 존재한는 모든 Servlet 이나 JSP
+    2. 초기화 파라미터
+        * JSP     : application.getInitParameter("name");
+        * Servlet : getServletContext().getInitParameter("name");
+    3. Attribut를 이용하여 소성값을 저장해서 다른 Servlet 이나 JSP에서 사용 가능
+        * JSP     : application.setAttribute("name", "value");         / application.getAttribute("name");
+        * Servlet : getServletContext().setAttribute("name", "value"); / getServletContext().getAttribute("name");
+2. 서블릿 초기화 : init-param
+    1. <init-param> 항목을 포함하고 있는 Servlet 이나 JSP
+    2. 초기화 파라미터
+        * JSP     : config.getInitParameter("name");
+        * Servlet : getServeltConfig().getInitParameter("name");
+3. Exception
+    1. Exception 발생 시 사용할 page 선 <%@ page errorPage="errorJSP.jsp" %>
+    2. Exception 페이지 설정 <%@ page isErrorPage="true" %>
+    
+    
+    
+    
+    

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
-  <display-name>JSPTest</display-name>
+  <display-name>jspTest</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
@@ -17,4 +17,60 @@
     <servlet-name>HelloServlet</servlet-name>
     <url-pattern>/SH</url-pattern>
   </servlet-mapping>
+  
+  
+  <!-- jspEx -->
+  <context-param>
+    <param-name>imgDir</param-name>
+    <param-value>/upload/img</param-value>
+  </context-param>
+  <context-param>
+    <param-name>localServerIP</param-name>
+    <param-value>127.0.0.1</param-value>
+  </context-param>
+  
+  <servlet>
+    <servlet-name>ServletEx</servlet-name>
+    <jsp-file>/jspEx.jsp</jsp-file>
+        <init-param>
+            <param-name>adminID</param-name>
+            <param-value>Admin</param-value>
+        </init-param>
+        <init-param>
+            <param-name>adminPW</param-name>
+            <param-value>Admin1!</param-value>
+        </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletEx</servlet-name>
+    <url-pattern>/jspEx.jsp</url-pattern>
+  </servlet-mapping>
+  
+  <!-- servletEx -->
+  <servlet>
+    <servlet-name>ServletEx</servlet-name>
+    <servlet-class>com.helloPjt.ServletEX</servlet-class>
+        <init-param>
+            <param-name>adminID</param-name>
+            <param-value>Admin</param-value>
+        </init-param>
+        <init-param>
+            <param-name>adminPW</param-name>
+            <param-value>Admin1!</param-value>
+        </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletEx</servlet-name>
+    <url-pattern>/SE</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ServletGet</servlet-name>
+    <servlet-class>com.helloPjt.ServletGet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletGet</servlet-name>
+    <url-pattern>/SG</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
